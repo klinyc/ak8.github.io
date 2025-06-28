@@ -4,7 +4,7 @@ body, html {
     padding: 0;
 }
 
-.home-bg, .contact-bg, .what_we_do-bg, .aboutus-bg {
+.home-bg, .contact-bg, .whatwedo-bg, .aboutus-bg {
     position: fixed;
     top: 50;
     left: 0;
@@ -20,29 +20,26 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: #fff;
 }
 
 .home-bg {
-    background-image: url('/static/background_homepage.jpg');
-    color: #fff;
+    background-image: url('../background_homepage.jpg');
 }
 
 .contact-bg {
-    background-image: url('/static/background_contact.jpg');
-    color: #fff;
+    background-image: url('../background_contact.jpg');
 }
 
-.what_we_do-bg {
-    background-image: url('/static/background_WhatWeDo.jpg');
-    color: #fff;
+.whatwedo-bg {
+    background-image: url('../background_WhatWeDo.jpg');
 }
 
 .aboutus-bg {
-    background: url('/static/background_AboutUs.jpg');
-    color: #fff;
+    background-image: url('../background_AboutUs.jpg');
 }
 
-.home-bg::before, .contact-bg::before, .what_we_do-bg::before, .aboutus-bg::before {
+.home-bg::before, .contact-bg::before, .whatwedo-bg::before, .aboutus-bg::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -50,12 +47,12 @@ body, html {
     z-index: 1;
 }
 
-.home-bg > *, .contact-bg > *, .what_we_do-bg > *, .aboutus-bg > * {
+.home-bg > *, .contact-bg > *, .whatwedo-bg > *, .aboutus-bg > * {
     position: relative;
     z-index: 2;
 }
 
-main .home-bg, main .contact-bg, main .what_we_do-bg, main .aboutus-bg {
+main .home-bg, main .contact-bg, main .whatwedo-bg, main .aboutus-bg {
     border-radius: 0 !important;
     margin: 0 !important;
     width: 100vw;
@@ -73,8 +70,8 @@ main {
 footer, nav {
     position: relative;
     z-index: 10;
-} 
+}
 
-.home-bg h1, .contact-bg h1, .what_we_do-bg h1, .aboutus-bg h1 {
+.home-bg h1, .contact-bg h1, .whatwedo-bg h1, .aboutus-bg h1 {
     margin-top: -20rem; /* or less, as needed */
 }
