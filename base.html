@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AK8 Capital</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <img src="/static/AK8_logo.png" alt="AK8 Capital Logo" height="40" class="d-inline-block align-text-top me-2">
+                <span class="fw-bold">AK8 Capital</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/who-we-are" data-en="Who We Are" data-zh="我们的团队">Who We Are</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/what-we-do" data-en="What We Do" data-zh="投资理念">What We Do</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact" data-en="Contact Us" data-zh="联系我们">Contact Us</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            EN
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('en')">EN</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('zh')">中文</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="container-fluid p-0 flex-grow-1">
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="bg-dark text-white text-center py-3 mt-auto w-100">
+        <div class="container">
+            <small>
+                &copy; 2025 AK8 Capital. All rights reserved. |
+                <a href="/disclaimer" class="text-white">Disclaimer</a> |
+                <a href="/privacy-policy" class="text-white">Privacy Policy</a> |
+                <a href="#" class="text-white">Related Sites</a>
+            </small>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function changeLanguage(lang) {
+            const dropdownButton = document.getElementById('languageDropdown');
+            if (lang === 'en') {
+                dropdownButton.textContent = 'EN';
+                document.querySelectorAll('[data-en]').forEach(el => {
+                    el.textContent = el.getAttribute('data-en');
+                });
+            } else if (lang === 'zh') {
+                dropdownButton.textContent = '中文';
+                document.querySelectorAll('[data-zh]').forEach(el => {
+                    el.textContent = el.getAttribute('data-zh');
+                });
+            }
+            localStorage.setItem('selectedLanguage', lang);
+        }
+
+        // Set language on page load based on localStorage
+        window.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+            changeLanguage(savedLang);
+        });
+    </script>
+    {% include 'cookie_consent.html' %}
+</body>
+</html> 

@@ -1,0 +1,15 @@
+<div id="cookieConsent" class="alert alert-secondary text-center fixed-bottom mb-0" style="display:none;">
+    We use cookies to ensure you get the best experience on our website.
+    <button class="btn btn-primary btn-sm ms-2" onclick="acceptCookies()">Accept</button>
+</div>
+<script>
+function acceptCookies() {
+    document.getElementById('cookieConsent').style.display = 'none';
+    localStorage.setItem('cookiesAccepted', 'true');
+}
+window.onload = function() {
+    if (!localStorage.getItem('cookiesAccepted')) {
+        document.getElementById('cookieConsent').style.display = 'block';
+    }
+}
+</script> 
