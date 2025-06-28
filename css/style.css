@@ -62,6 +62,12 @@ main .home-bg, main .contact-bg, main .whatwedo-bg, main .aboutus-bg {
     min-height: 100vh;
 }
 
+/* Special handling for aboutus-bg container */
+main .aboutus-bg {
+    height: auto;
+    min-height: 100vh;
+}
+
 main {
     padding: 0 !important;
     margin: 0 !important;
@@ -88,6 +94,24 @@ footer, nav {
         height: calc(100vh - 56px); /* Account for navbar height */
         min-height: calc(100vh - 56px);
         padding: 1rem;
+    }
+    
+    /* Special handling for aboutus-bg to allow scrolling */
+    .aboutus-bg {
+        height: auto !important;
+        min-height: calc(100vh - 56px);
+        overflow-y: auto; /* Enable vertical scrolling */
+        padding-bottom: 2rem; /* Add bottom padding for better spacing */
+    }
+    
+    /* Ensure proper content flow in aboutus-bg */
+    .aboutus-bg .container {
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+    }
+    
+    .aboutus-bg .row {
+        margin-bottom: 2rem;
     }
     
     .home-bg h1, .contact-bg h1, .whatwedo-bg h1, .aboutus-bg h1 {
