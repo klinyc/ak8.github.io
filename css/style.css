@@ -2,16 +2,17 @@ body, html {
     height: 100%;
     margin: 0;
     padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling on mobile */
 }
 
+/* Mobile-first responsive design */
 .home-bg, .contact-bg, .whatwedo-bg, .aboutus-bg {
-    position: fixed;
-    top: 50;
+    position: relative; /* Changed from fixed to relative for better mobile support */
+    top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     min-height: 100vh;
-    min-width: 100vw;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -21,6 +22,7 @@ body, html {
     justify-content: center;
     align-items: center;
     color: #fff;
+    overflow: hidden; /* Prevent content overflow */
 }
 
 .home-bg {
@@ -55,10 +57,9 @@ body, html {
 main .home-bg, main .contact-bg, main .whatwedo-bg, main .aboutus-bg {
     border-radius: 0 !important;
     margin: 0 !important;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     min-height: 100vh;
-    min-width: 100vw;
 }
 
 main {
@@ -72,6 +73,143 @@ footer, nav {
     z-index: 10;
 }
 
+/* Responsive heading positioning */
 .home-bg h1, .contact-bg h1, .whatwedo-bg h1, .aboutus-bg h1 {
-    margin-top: -20rem; /* or less, as needed */
+    margin-top: 0; /* Remove negative margin */
+    text-align: center;
+    padding: 0 1rem;
+    font-size: clamp(2rem, 5vw, 3.5rem); /* Responsive font size */
+    line-height: 1.2;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    .home-bg, .contact-bg, .whatwedo-bg, .aboutus-bg {
+        height: calc(100vh - 56px); /* Account for navbar height */
+        min-height: calc(100vh - 56px);
+        padding: 1rem;
+    }
+    
+    .home-bg h1, .contact-bg h1, .whatwedo-bg h1, .aboutus-bg h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .home-bg p, .contact-bg p, .whatwedo-bg p, .aboutus-bg p {
+        font-size: 1rem;
+        text-align: center;
+        padding: 0 1rem;
+    }
+    
+    /* Improve navbar on mobile */
+    .navbar-brand span {
+        font-size: 1rem;
+    }
+    
+    .navbar-brand img {
+        height: 30px !important;
+    }
+    
+    /* Better card layout for mobile */
+    .card {
+        margin-bottom: 1rem;
+    }
+    
+    .card .row {
+        flex-direction: column;
+    }
+    
+    .card .col-4 {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    
+    .card .col-8 {
+        width: 100%;
+    }
+    
+    .card img {
+        width: 120px !important;
+        height: 150px !important;
+    }
+    
+    /* Improve footer on mobile */
+    footer .container {
+        padding: 0 1rem;
+    }
+    
+    footer small {
+        font-size: 0.8rem;
+        line-height: 1.4;
+    }
+    
+    footer a {
+        display: inline-block;
+        margin: 0.2rem 0;
+    }
+}
+
+/* Tablet styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .home-bg h1, .contact-bg h1, .whatwedo-bg h1, .aboutus-bg h1 {
+        font-size: 2.5rem;
+    }
+    
+    .card .col-4 {
+        width: 35%;
+    }
+    
+    .card .col-8 {
+        width: 65%;
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 1025px) {
+    .home-bg h1, .contact-bg h1, .whatwedo-bg h1, .aboutus-bg h1 {
+        font-size: 3.5rem;
+        margin-top: -10rem; /* Only apply negative margin on large screens */
+    }
+}
+
+/* Fix for iOS Safari viewport issues */
+@supports (-webkit-touch-callout: none) {
+    .home-bg, .contact-bg, .whatwedo-bg, .aboutus-bg {
+        height: -webkit-fill-available;
+        min-height: -webkit-fill-available;
+    }
+}
+
+/* Ensure proper text contrast and readability */
+.home-bg p, .contact-bg p, .whatwedo-bg p, .aboutus-bg p {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.home-bg h1, .contact-bg h1, .whatwedo-bg h1, .aboutus-bg h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-weight: 600;
+}
+
+/* Improve card readability on mobile */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .card-title {
+        font-size: 1.25rem;
+    }
+    
+    .card-subtitle {
+        font-size: 1rem;
+    }
+    
+    .card ul li {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
 }
