@@ -119,6 +119,7 @@ footer, nav {
         height: calc(100vh - 56px); /* Account for navbar height */
         min-height: calc(100vh - 56px);
         padding: 1rem;
+        flex-direction: column; /* Ensure vertical stacking */
     }
     
     /* Special handling for aboutus-bg to allow scrolling */
@@ -214,6 +215,17 @@ footer, nav {
     /* Move content higher on mobile for all pages */
     .home-bg > *, .contact-bg > *, .whatwedo-bg > *, .aboutus-bg > * {
         margin-top: -35vh !important; /* Move higher on mobile */
+    }
+    
+    /* Ensure proper order: title first, then paragraph */
+    .home-bg h1, .contact-bg h1, .whatwedo-bg h1, .aboutus-bg h1 {
+        order: 1;
+        margin-bottom: 1rem;
+    }
+    
+    .home-bg p, .contact-bg p, .whatwedo-bg p, .aboutus-bg p {
+        order: 2;
+        margin-top: 0;
     }
 }
 
