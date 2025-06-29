@@ -105,6 +105,7 @@ footer, nav {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 }
 
 /* Move content to middle of top half */
@@ -144,7 +145,7 @@ footer, nav {
     }
     
     .home-bg p, .contact-bg p, .whatwedo-bg p, .aboutus-bg p {
-        font-size: 1rem;
+        font-size: 1.5rem;
         text-align: center;
         padding: 0 1rem;
     }
@@ -229,8 +230,8 @@ footer, nav {
 /* Desktop styles */
 @media (min-width: 1025px) {
     .home-bg h1, .contact-bg h1, .whatwedo-bg h1, .aboutus-bg h1 {
-        font-size: 3.5rem;
-        margin-top: -10rem; /* Only apply negative margin on large screens */
+        font-size: 3rem;
+        margin-top: -20rem; /* Only apply negative margin on large screens */
     }
 }
 
