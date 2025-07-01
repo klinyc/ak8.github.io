@@ -212,8 +212,16 @@ footer, nav {
     }
     
     /* Move content higher on mobile for all pages */
+    .home-bg > h1, .contact-bg > h1, .whatwedo-bg > h1, .aboutus-bg > h1 {
+        margin-top: -35vh !important;
+    }
+    /* Remove negative margin for all children on mobile */
     .home-bg > *, .contact-bg > *, .whatwedo-bg > *, .aboutus-bg > * {
-        margin-top: -35vh !important; /* Move higher on mobile */
+        margin-top: 0 !important;
+    }
+    /* Add top padding for aboutus-bg to ensure first bio is visible */
+    .aboutus-bg {
+        padding-top: 2.5rem !important;
     }
 }
 
